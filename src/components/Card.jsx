@@ -13,7 +13,7 @@ const Card = ({ product }) => {
         <h4 className="text-truncate">{product.title}</h4>
         <p>{product.price}</p>
         <p>{product.category}</p>
-        <button>Sepete Ekle</button>
+        <button>Add to cart</button>
       </div>
     </div>
   );

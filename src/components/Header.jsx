@@ -1,8 +1,19 @@
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import axios from "axios";
+import { ProductContext } from "../context/productContext";
 
 const Header = () => {
+  const { setCategory } = useContext(ProductContext);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then((res) => setCategories(res.data));
+  }, []);
+
   return (
-    <nav className="navbar navbar-dark bg-black sticky-top navbar-expand-md">
+    <nav className="navbar navbar-dark bg-black sticky-top navbar-expand-md ">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Context Store
@@ -18,7 +29,7 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="offcanvas offcanvas-end text-bg-dark"
+          className="offcanvas offcanvas-end text-bg-dark "
           tabindex="-1"
           id="offcanvasDarkNavbar"
           aria-labelledby="offcanvasDarkNavbarLabel"
@@ -34,16 +45,20 @@ const Header = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="offcanvas-body">
+          <div className="offcanvas-body ">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  Anasayfa
+                <NavLink
+                  onClick={() => setCategory("All")}
+                  className="nav-link"
+                  to="/"
+                >
+                  Home
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/checkout">
-                  <span>Sepet</span>
+                  <span>Cart</span>
                   <span className="badge bg-danger ms-1">4</span>
                 </NavLink>
               </li>
@@ -55,14 +70,21 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Kategoriler
+                  Categories
                 </NavLink>
                 <ul className="dropdown-menu dropdown-menu-dark">
-                  <li>
+                  <li onClick={() => setCategory("All")}>
                     <a className="dropdown-item" href="#">
-                      Kategori
+                      All
                     </a>
                   </li>
+                  {categories?.map((cat) => (
+                    <li onClick={() => setCategory(cat)}>
+                      <a className="dropdown-item" href="#">
+                        {cat}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </li>
             </ul>

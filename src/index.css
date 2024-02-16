@@ -3,6 +3,7 @@ body {
   background-color: #242424;
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
 }
 
 button {
@@ -11,4 +12,12 @@ button {
   border-radius: 5px;
   border: none;
   padding: 6px;
+}
+
+.style {
+  background-color: rgba(15, 14, 14, 0.3);
+  border-radius: 120px;
+  display: inline-block;
+  padding: 15px;
+  letter-spacing: 1px;
 }
