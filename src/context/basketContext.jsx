@@ -26,7 +26,7 @@ export function BasketProvider({ children }) {
       //ürün sepete ilk defa ekleniyosa ürünün bütün bilgilerini getir bir de miktar değeri ekle bunu 1 yap
       setBasket([...basket, { ...newProduct, amount: 1 }]);
 
-      toast.success("Ürün sepetinize eklendi.");
+      toast.success("The product added to your cart.");
     }
     console.log(basket);
   };
@@ -41,12 +41,12 @@ export function BasketProvider({ children }) {
       const updated = { ...found, amount: found.amount - 1 };
       const newBasket = basket.map((i) => (i.id === updated.id ? updated : i));
       setBasket(newBasket);
-      toast.info(`Ürün miktarı azaltıldı (${updated.amount})`);
+      toast.info(`Product quantity reduced (${updated.amount})`);
     } else {
       const filtred = basket.filter((i) => i.id !== deleteId);
       setBasket(filtred);
 
-      toast.error("Ürün sepetten kaldırıldı.");
+      toast.error("Product removed from cart");
     }
   };
   return (
