@@ -40,7 +40,7 @@ const Header = () => {
         >
           <div className="offcanvas-header">
             <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
-              Context Store
+              BS Store
             </h5>
             <button
               type="button"
@@ -78,9 +78,9 @@ const Header = () => {
                 </NavLink>
                 <ul className="dropdown-menu dropdown-menu-dark">
                   <li onClick={() => setCategory("All")}>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="/">
                       All
-                    </a>
+                    </Link>
                   </li>
                   {categories?.map((cat) => (
                     <li onClick={() => setCategory(cat)}>

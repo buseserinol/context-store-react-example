@@ -11,7 +11,11 @@ const BasketItem = ({ item, addToBasket, removeFromBasket }) => {
           />
         </div>
 
-        <h4 className="text-truncate">{item.title.slice(0, 30) + "..."}</h4>
+        <h4>
+          {item.title.length <= 30
+            ? item.title
+            : item.title.slice(0, 30) + "..."}
+        </h4>
       </div>
 
       <div className=" justify-content-between d-flex align-items-center gap-3">

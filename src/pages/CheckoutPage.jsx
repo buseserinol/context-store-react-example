@@ -14,9 +14,9 @@ const CheckoutPage = () => {
         {basket.length === 0 && (
           <p className="Text-center my-5">
             <span className="mx-3">
-              Öncelikle sepetinize bir ürün ekleyiniz.{" "}
+              Firstly, please add a product to your cart.
             </span>
-            <Link to={"/"}>Ürünler</Link>
+            <Link to={"/"}>Products</Link>
           </p>
         )}
         {/*sepette ürün VARSA  */}
@@ -32,12 +32,12 @@ const CheckoutPage = () => {
 
       <div className="border rounded p-5 my-5 fs-4">
         <p>
-          Sepetteki Ürün:{" "}
-          <span className="text-warning">{totalAmount} adet</span>
+          Products in your cart:
+          <span className="text-warning"> {totalAmount} items</span>
         </p>
         <p>
-          Toplam Fiyat:{" "}
-          <span className="text-success">{totalPrice.toFixed(2)} ₺</span>
+          Total Price:
+          <span className="text-success"> {totalPrice.toFixed(2)} ₺</span>
         </p>
       </div>
     </div>
