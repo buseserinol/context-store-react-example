@@ -20,7 +20,7 @@ This project is an online e-commerce platform built with React that offers a mod
 
 ## Project Preview
 
-![]()
+![](./src/images/ecommerce.gif)
 
 ## License
 
