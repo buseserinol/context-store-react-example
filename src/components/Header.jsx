@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { ProductContext } from "../context/productContext";
+import { BasketContext } from "../context/basketContext";
 
 const Header = () => {
   const { setCategory } = useContext(ProductContext);
+  const { basket } = useContext(BasketContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios
@@ -12,11 +14,13 @@ const Header = () => {
       .then((res) => setCategories(res.data));
   }, []);
 
+  //sepetteki ürün sayısını hesaplama
+  const total = basket.reduce((total, product) => total + product.amount, 0);
   return (
     <nav className="navbar navbar-dark bg-black sticky-top navbar-expand-md ">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
-          Context Store
+          BS Store
         </NavLink>
         <button
           className="navbar-toggler"
@@ -59,7 +63,7 @@ const Header = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/checkout">
                   <span>Cart</span>
-                  <span className="badge bg-danger ms-1">4</span>
+                  <span className="badge bg-danger ms-1">{total}</span>
                 </NavLink>
               </li>
               <li className="nav-item dropdown">

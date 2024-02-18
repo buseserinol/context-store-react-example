@@ -8,7 +8,7 @@ const HomePage = () => {
   const { basket } = useContext(BasketContext);
   //abone olma işlemi
   const { products, category } = useContext(ProductContext);
-  console.log(products);
+  // console.log(products);
   return (
     <div className="container">
       <h1 className="my-4 style">{category && category}</h1>

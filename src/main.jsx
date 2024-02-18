@@ -6,6 +6,8 @@ import "bootstrap/dist/js/bootstrap.js";
 import "./index.css";
 import { ProductProvider } from "./context/productContext.jsx";
 import { BasketProvider } from "./context/basketContext.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -14,5 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </ProductProvider>
     </BasketProvider>
+
+    <ToastContainer autoClose={1500} />
   </React.StrictMode>
 );
