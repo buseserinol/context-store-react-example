@@ -15,7 +15,7 @@ const Card = ({ product }) => {
       </div>
       <div className="card-body d-flex flex-column gap-1">
         <h4 className="text-truncate">{product.title}</h4>
-        <p>{product.price}</p>
+        <p>{product.price} ₺</p>
         <p>{product.category}</p>
         <button className="buton" onClick={() => addToBasket(product)}>
           Add to cart
