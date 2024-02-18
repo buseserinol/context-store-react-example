@@ -21,7 +21,7 @@ const BasketItem = ({ item, addToBasket, removeFromBasket }) => {
       <div className=" justify-content-between d-flex align-items-center gap-3">
         <h3 className="text-success text-nowrap">{item.price} ₺</h3>
         <p className="d-flex align-items-center gap-1 text-nowrap">
-          <span> Miktar:</span>
+          <span> Amount:</span>
           <span className="fw-bold">{item.amount}</span>
         </p>
         <div className="d-flex gap-2">
