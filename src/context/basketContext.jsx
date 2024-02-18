@@ -21,7 +21,7 @@ export function BasketProvider({ children }) {
       //!state'i güncelle
 
       setBasket(newBasket);
-      toast.info(`Ürün miktarı arttırıldı (${updated.amount})`);
+      toast.info(`Product quantity increased(${updated.amount})`);
     } else {
       //ürün sepete ilk defa ekleniyosa ürünün bütün bilgilerini getir bir de miktar değeri ekle bunu 1 yap
       setBasket([...basket, { ...newProduct, amount: 1 }]);
